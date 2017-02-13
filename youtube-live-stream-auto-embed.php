@@ -24,13 +24,13 @@ Copyright 2015 SM Wordpress Youtube Live Stream
 	add_action( 'wp_enqueue_scripts', 'yt_live_stylesheet' );
 
     	function yt_live_stylesheet() {
-        	wp_enqueue_style( 'youtube-live', plugins_url('assets/css/youtube-live-style.css', __FILE__) );
+        	wp_enqueue_style( 'youtube-live', plugins_url('Maaninganmahtilive.github.io/youtube-live-style.css', __FILE__) );
     }
 
 	add_action( 'admin_enqueue_scripts', 'yt_admin_stylesheet' );
 
     	function yt_admin_stylesheet() {
-        	wp_enqueue_style( 'youtube-live', plugins_url('admin/css/admin-options.css', __FILE__) );
+        	wp_enqueue_style( 'youtube-live', plugins_url('Maaninganmahtilive.github.io/admin-options.css', __FILE__) );
     }
 
 /*-----------------------------------------------------------------------------------*/
@@ -49,7 +49,7 @@ Copyright 2015 SM Wordpress Youtube Live Stream
     		if ( !current_user_can( 'manage_options' ) )  {
         		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
     }
-    		include __DIR__."/admin/options.php";
+    		include __DIR__."Maaninganmahtilive.github.io/options.php";
 	} 
 
 /*-----------------------------------------------------------------------------------*/
@@ -60,7 +60,7 @@ Copyright 2015 SM Wordpress Youtube Live Stream
 	
 		ob_start();
 	
-			include "includes/shortcode.php"; 
+			include "Maaninganmahtilive.github.io/shortcode.php"; 
 	
 		return ob_get_clean();
 	}
