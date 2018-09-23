@@ -1,322 +1,408 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head><!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110534780-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<head>
+  <meta charset="utf-8">
+  <title>Mahti live | Maaningan mahtia suorana!</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content=" Sivusto tarjoaa mahdin pelit mahdollisuuksien mukaan suoratoistona ruudullesi!" name="description">
 
-  gtag('config', 'UA-110534780-1');
-</script>
-       <script>
-(function(h,e,a,t,m,p) {
-m=e.createElement(a);m.async=!0;m.src=t;
-p=e.getElementsByTagName(a)[0];p.parentNode.insertBefore(m,p);
-})(window,document,'script','https://u.heatmap.it/log.js');
-</script>
-    
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Maaningan mahdin pelien live lähetyksien kotipaikka! Tulkaahan katsomaan myös paikanpäälle!">
-    <meta name="author" content="Severi Kupari">
-    <meta property="og:image" content="Maaninganmahtilive.github.io/img/kuvake/cropped-mahti-logo.jpg?w=200" />     
-    <link rel="shortcut icon" href="Maaninganmahtilive.github.io/img/kuvake/favicon.ico" >
-    <meta name="keywords" content="maaninka,mahti,muaninganmahti,mahti,maaninka,1-sarja,lentopallo,live,maaninka mahti live,suorana maaninka, maaninka mahti, maaningan mahti, maaningan mahti live">
-	
+  <!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->
+  <meta property="og:title" content="">
+  <meta property="og:image" content="">
+  <meta property="og:url" content="">
+  <meta property="og:site_name" content="">
+  <meta property="og:description" content="">
 
-    <title>Maaningan mahti Live</title>
+  <!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:title" content="">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="">
 
-    <!-- Bootstrap Core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    
-    <script src="Maaninganmahtilive.github.io/ism/js/ism-2.2.min.js"></script>
+<link rel="manifest" href="/manifest.json">
 
-    <!-- Custom Fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+  <!-- Favicon -->
+ <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
 
-    <!-- Plugin CSS -->
-    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900" rel="stylesheet">
 
-    <!-- <link rel="stylesheet" href="Maaninganmahtilive.github.io/css/my-slider.css"/> -->
-    
-    <!-- Theme CSS -->
-    <link href="css/creative.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/index.css">
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+
+  
 </head>
 
-<body id="page-top">
+<body>
+<!-- Firebase App is always required and must be first -->
+<script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-app.js"></script>
 
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Valikko <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Koti</a>
-            </div>
+<!-- Add additional services that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-messaging.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-functions.js"></script>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    
-                
-			
-                   <li>
-                        <a class="page-scroll" href="https://www.youtube.com/channel/UCdwgFWCv5BKMT59kTdJSJIQ">Linkki haastatteluihin</a>
-                    </li> 
-			
-			
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-
-    <header>
-        <div class="header-content">
-            <div class="header-content-inner">
-		    
-               
-               <h3 style="color:red;"> Seuraavaa kotipeliä ei lähetetä livenä!</h3>
-               <!-- <a href="#portfolio" class="btn btn-primary btn-xl page-scroll">Lue lisää</a> -->
-               
-               
-            </div>
-        </div>
-    </header>  
-	
-	<!-- tää on facebookin scriptille -->
-	
-	<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-		
-  js.src = "//connect.facebook.net/fi_FI/sdk.js#xfbml=1&version=v2.10";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-   	
-<!--
- <div class="ism-slider" data-play_type="loop" data-interval="3000" data-radios="false" id="my-slider">
-  <ol>
-    <li>
-      <img src="Maaninganmahtilive.github.io/img/akh.jpg">
-    </li>
-    <li>
-      <img src="Maaninganmahtilive.github.io/img/eliittirakentajat.jpg">
-    </li>
-    <li>
-      <img src="Maaninganmahtilive.github.io/img/fysikaalinen.jpg">
-    </li>
-    <li>
-      <img src="Maaninganmahtilive.github.io/img/hollitupa.jpg">
-    </li>
-    <li>
-      <img src="Maaninganmahtilive.github.io/img/huippu.jpg">
-    </li>
-    <li>
-      <img src="Maaninganmahtilive.github.io/img/keitele.jpg">
-    </li>
-    <li>
-      <img src="Maaninganmahtilive.github.io/img/kh.jpg">
-    </li>
-    <li>
-      <img src="Maaninganmahtilive.github.io/img/kk-sahko.jpg">
-    </li>
-    <li>
-      <img src="Maaninganmahtilive.github.io/img/kotipitsa.jpg">
-    </li>
-    <li>
-      <img src="Maaninganmahtilive.github.io/img/Rauta-Sport Hoffren.JPG">
-    </li>
-	  <li>
-      <img src="Maaninganmahtilive.github.io/img/Hoppari.jpg">
-    </li>
-	  <li>
-      <img src="Maaninganmahtilive.github.io/img/SuomenPerinnehirsi LOGO 2015.jpg">
-    </li>
-	  <li>
-      <img src="Maaninganmahtilive.github.io/img/Sepa_ristikkologo_CMYK-1.jpg">
-    </li>
-	  <li>
-      <img src="Maaninganmahtilive.github.io/img/Savonia.JPG">
-    </li>
-	  <li>
-      <img src="Maaninganmahtilive.github.io/img/Savon_Hinauspalvelut_logo-1.jpg">
-    </li>
-	  <li>
-      <img src="Maaninganmahtilive.github.io/img/Kasnanen.jpg">
-    </li>
-  </ol>
-</div>
--->
- 
-
-	
-	 <!-- tää on testi  -->
-   <!-- <aside class="bg-dark"> -->
-	<div class="col-lg-8 col-lg-offset-2 text-center video-container">	
-        
-		<iframe src="https://player.twitch.tv/?channel=maaninganmahtilive" frameborder="0" allowfullscreen="true" scrolling="no" height="100%" width="100%"></iframe><a href="https://www.twitch.tv/maaninganmahtilive?tt_medium=live_embed&tt_content=text_link" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px; text-decoration:underline;">Katso suorana</a>
-        
-        
-  <!--   <iframe width="560" height="315" src="https://www.youtube.com/embed/live_stream?channel=UCQxAgVJH6np0bukFRfHIDiA" frameborder="0" allowfullscreen=""></iframe>  -->
-  <!--  </div><div class="container text-center">
-            <div class="call-to-action">
-                <h2>Youtube videon kuvanlaatua voi parantaa <a href="https://support.google.com/youtube/answer/91449?hl=fi">videoasetuksista!</a> Alempaa voit siirtyä Maaningan mahdin youtube kanavalle, Tulevat pelit näkyvät myös siellä!</h2> -->
-               	  
-   
-                   <!-- <iframe width="560" height="315" src="https://embed.bambuser.com/channel/pseppanen" frameborder="0" allowfullscreen=""></iframe> -->
-		       
-	
-		       
-    <!-- </div><a href="http://www.youtube.com/channel/UCQxAgVJH6np0bukFRfHIDiA/live" class="btn btn-default btn-xl sr-button">Liven youtube kanavalle!</a>  -->
- 
-	  <a href="https://www.youtube.com/channel/UCdwgFWCv5BKMT59kTdJSJIQ" class="btn btn-default btn-xl sr-button">Haastattelujen youtube kanavalle!!</a>  	    
-            </div>
-        
- <!--	</aside>       <!-- tää on testi  --> 
-	
- 	
-    <!--   tämä on toimiva <div class="col-lg-8 col-lg-offset-2 text-center video-container">	  
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/ShiQ0CWiMY0" frameborder="0" allowfullscreen></iframe>  
-    </div>	             		
-	<div class="col-lg-8 col-lg-offset-2 text-center video-container">	 -->
-<!-- 
-     <iframe width="100%" height="100%" src="https://embed.bambuser.com/channel/pseppanen" frameborder="0" allowfullscreen></iframe>  -->
-
-    <!--
-    </div>	
-	<aside class="bg-dark">
-	<div class="container text-center">
-            <div class="call-to-action">
-                <h2>Youtube videon kuvanlaatua voi parantaa <a href="https://support.google.com/youtube/answer/91449?hl=fi">videoasetuksista!</a> Alempaa voit siirtyä Maaningan mahdin youtube kanavalle, Tulevat pelit näkyvät myös siellä!</h2>
-               <a href="http://www.youtube.com/channel/UCQxAgVJH6np0bukFRfHIDiA/live" class="btn btn-default btn-xl sr-button">Siirry tästä kanavalle!</a> 
-            </div>
-        </div>
-	</aside>     tämä on toimiva-->
-	
-	
-<!--
-    <div class="col-lg-8 col-lg-offset-2 text-center">	  
+<!-- Comment out (or don't include) services that you don't want to use -->
+<!-- <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-storage.js"></script> -->
+<!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
     
-  <iframe width="560" height="315" src="https://embed.bambuser.com/channel/pseppanen" frameborder="0" allowfullscreen></iframe> 
-    </div>    
--->
-	
-  <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/HwrS1HD4_h4" frameborder="0" allowfullscreen></iframe> -->
-<!--	<h1>Tänään ei tule peliä twitchistä vain bambuserista! peli näkkyy yllä</h1>-->
-   
-    
+
+    <!-- firebase -->
+
+
+  <!-- Page Content
+    ================================================== -->
+  <!-- Hero -->
+
+  <section class="hero">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-12">
+          <a class="hero-brand " href="#about" title="Koti"><img class="ympyra" alt="Mahti Logo" src="img/mahti/mahti-live-logo.jpg"></a>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <h1>
+            Tervetuloa uudistuneelle mahdin live kanavalle!
+          </h1>
+
+        <p class="tagline">
+          Sivusto tarjoaa mahdin pelit mahdollisuuksien mukaan suoratoistona ruudullesi!
+        </p>
+        <a class="btn btn-full" href="#about">Aloita katsominen!</a>
+      </div>
+    </div>
+
+  </section>
+  <!-- /Hero -->
+
+  <!-- Header -->
+  <header id="header">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <a href="index.html"><img src="img/mahti/mahtilippu.png" alt="" title=""></a>
+        <!-- Uncomment below if you prefer to use a text image -->
+        <!--<h1><a href="#hero">Bell</a></h1>-->
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li><a href="#about">Peliin!</a></li>
           
-       <!-- </div> Kokeilu-->
-    
-                  
-           	       
-   
+          <li><a href="#team">Joukkue</a></li>
+<!--          <li><a href="login.html">Kirjaudu Sisään</a></li>-->
+          
+        </ul>
+      </nav>
+      <!-- #nav-menu-container -->
 
-                    <div class="container text-center">
-                    <div class="call-to-action">
-                        <i class="fa fa-4x fa-heart text-primary sr-icons" data-sr-id="2" style="; visibility: visible;  -webkit-transform: scale(1); opacity: 1;transform: scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; "></i>
-                        <h3 style="color:red;"> Seuraavaa kotipeliä ei lähetetä livenä!</h3>
-                        <h3>Tehty sydämellä Maaningan mahdin kannattajille</h3>
-                        <p class="text-muted"> Lähetykset tulevat kaikista peleistä! Tulkaahan paikanpäälle katsomaan! Tarvitsemme teitä!</p>
-                    </div>
-           
-			    <div class="fb-page" data-href="https://www.facebook.com/MaaninganMahti/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/MaaninganMahti/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/MaaninganMahti/">Maaningan Mahti</a></blockquote></div>
- <!-- <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x fa-heart text-primary sr-icons" data-sr-id="2" style="; visibility: visible;  -webkit-transform: scale(1); opacity: 1;transform: scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; "></i>
-                        <h3>Tehty sydämellä Maaningan mahdin kannattajille</h3>
-                        <p class="text-muted"> Jotka eivät pääse paikanpäälle katsomaan pelejä.</p>
-                    </div>
-                </div> -->
+      <nav class="nav social-nav pull-right d-none d-lg-inline">
+<!--        <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> -->
+        <!-- <a href="#"><i class="fa fa-linkedin"></i></a>
+         <a href="#"><i class="fa fa-envelope"></i></a> -->
+      </nav>
+    </div>
+  </header>
+  <!-- #header -->
 
-<!-- <section id="contact">
-        <div class="container">
+  <!-- About -->
+
+  <section class="about" id="about">
+    <div class="container text-center">
+      <h2>
+          Alempana pelimme suorana!
+        </h2>
+						
+						<div class="row">
+						<div class="col ">
+								<iframe src="https://player.twitch.tv/?channel=maaninganmahtilive" frameborder="0" allowfullscreen="true" scrolling="no" height="400" width="100%"></iframe>
+						</div>
+						
+						</div>
+      
+            
+
+
             <div class="row">
-                <div class="col-lg-4 text-center">
-                    <i class="fa fa-envelope-o fa-3x sr-contact"></i>
-                    <p><a href="mailto:maaninganmahtilive@gmail.com">Maaninganmahtilive@gmail.com</a></p>
-                </div> -->
-                        
-                        <!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/58b170701876b84935cca9af/default';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
-                
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Otahan yhteyttä!</h2>
-                    <hr class="primary">
-                    <p>Palautetta sivustosta ja parannus ehdotuksia otetaan vastaan mielellään!</p> 
-                    <p><a href="mailto:maaninganmahtilive@gmail.com">Maaninganmahtilive@gmail.com</a></p>
-                    
-                   <!-- <a href="https://www.facebook.com/pages/Maaningan-Mahti/785088314931572" class="btn btn-default btn-xl sr-button">Tästä Pääset takaisin Maaningan mahdin Facebook sivuille!</a>    -->              
-                   
-                </div>
-            </div>                                    
-       <div class="content-container" id="content-container-291303"><div style="width: 100%; text-align: center; margin: auto !important;"><script type="text/javascript"><!--
-	$(function() {
-		d4initColorbox(291302, 1300, 800);
-	});
-	//--></script>
-
-	<table class="contentImageArea" style="margin: auto;">
-	<tbody><tr><td class="captionModel0" style="width:72px;"><a href="https://www.facebook.com/pages/Maaningan-Mahti/785088314931572" style="text-decoration: none;" target="_blank"><img src="https://maaninganmahtilive.github.io/orig_image-13047.jpeg" width="72" height="90" style="margin-right: 0;" alt="" data-caption=""></a></td></tr>
-</tbody></table></div><div id="content-text-291303"><p> &nbsp;</p><h3 style="text-align: center;"> &nbsp;Maaningan Mahdin lentopallon sivut Facebookissa!&nbsp;</h3></div></div>
-       
-       
-       
-<!--    <section id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Otahan yhteyttä!</h2>
-                    <hr class="primary">
-                    <p>Palautetta sivustosta ja parannus ehdotuksia otetaan vastaan mielellään!</p>
-                
-                <div class="col-lg-4 text-center">
-                    <i class="fa fa-envelope-o fa-3x sr-contact"></i>
-                    <p><a href="mailto:maaninganmahtilive@gmail.com">Maaninganmahtilive@gmail.com</a></p>
-                </div>
+              <div class="col-6">Mahti pisteet</div>
+              <div class="col-6">Vieras pisteet</div>
             </div>
+            <div class="row">
+              <div class="col-6" ><p id="mahtipistekenttaindex" class="circle-custom"></p> </div>
+              <div class="col-6" ><p id="vieraspistekenttaindex" class="circle-custom1"></p></div>
+            </div>
+            
+            <div class="row">
+              <div class="col-6">Mahti erät</div>
+              <div class="col-6">Vieras erät</div>
+            </div>
+            <div class="row">
+              <div class="col-6"><p id="mahtieratkenttaindex" class="circle-custom">0</p> </div>
+              <div class="col-6"><p class="circle-custom1" id="vieraseratkenttaindex"></p></div>
+            </div>
+
+            <div class="row mt-5">
+              <div class="col-12">Tilannetta päivitetään jos mahdollista, ja on testausvaiheessa, vapaaehtoiset ottakee yhteyttä maaninganmahtilive@gmail.com, jos haluatte auttaa tilanteen päivittelyssä.</div>
+            </div>
+     
+
+    </div>
+  </section>
+  <!-- /About -->
+  <!-- Parallax -->
+
+<!--
+  <div class="block bg-primary block-pd-lg block-bg-overlay text-center" data-bg-img="https://severikupari1.github.io/mahtilive/img/mahti/Silhouette-Volleyball.JPG" data-settings='{"stellar-background-ratio": 0.6}' data-toggle="parallax-bg">
+    <h2>
+        Alempana joukkueemme!
+      </h2>
+
+    <p>
+
+    </p>
+    <img alt="Bell - A perfect theme" class="gadgets-img hidden-md-down" src="img/mahti/pallot1.png">
+  </div>
+-->
+  <!-- /Parallax -->
+ 
+
+  
+
+  <!-- Team -->
+
+<!--
+  <section class="team" id="team">
+    <div class="container">
+      <h2 class="text-center">
+          
+        </h2>
+
+      <div class="row">
+           <div class="col-sm-3 col-xs-6">
+      <div class="card card-block">
+        <a href="#"><img alt="" class="team-img" src="img/mahti/pelaajakortit/Lasse%20J%C3%A4ntti.jpg">
+              <div class="card-title-wrap">
+                <span class="card-title">Lasse Jäntti</span> <span class="card-text">Passari</span>
+              </div>
+
+
+      </a>
+    </div>
+    </div>
+        <div class="col-sm-3 col-xs-6">
+          <div class="card card-block">
+            <a href="#"><img alt="" class="team-img" src="img/mahti/pelaajakortit/Kortti_Jyrki.jpeg">
+              <div class="card-title-wrap">
+                <span class="card-title">Jyrki Meriruoko</span> <span class="card-text">Passari</span>
+              </div>
+
+
+          </a>
         </div>
-    </section> -->
+      </div>
 
-    <!-- jQuery -->
-    <script src="vendor/jquery/jquery.min.js"></script>
+      <div class="col-sm-3 col-xs-6">
+        <div class="card card-block">
+          <a href="#"><img alt="" class="team-img" src="img/mahti/pelaajakortit/Karttunen.jpg">
+              <div class="card-title-wrap">
+                <span class="card-title">Antti Karttunen</span> <span class="card-text">Yleispelaaja</span>
+              </div>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
-    <!-- Plugin JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
-    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+        </a>
+      </div>
+    </div>
 
-    <!-- Theme JavaScript -->
-    <script src="js/creative.min.js"></script>
+
+
+    <div class="col-sm-3 col-xs-6">
+      <div class="card card-block">
+        <a href="#"><img alt="" class="team-img" src="img/mahti/pelaajakortit/Kortti_Simo.jpeg">
+              <div class="card-title-wrap">
+                <span class="card-title">Simo Näkki</span> <span class="card-text">Libero/Yp</span>
+              </div>
+
+         
+      </a>
+    </div>
+    </div>
+    </div>
+    
+    
+-->
+    <!-- toka row -->
+<!--
+    <div class="row">
+           <div class="col-sm-3 col-xs-6">
+      <div class="card card-block">
+        <a href="#"><img alt="" class="team-img" src="img/mahti/pelaajakortit/Kortti%20Lasse.jpg">
+              <div class="card-title-wrap">
+                <span class="card-title">Lasse Räisänen</span>
+                 <span class="card-text">Yleispelaaja</span>
+              </div>
+-->
+
+<!--
+              <div class="team-over">
+                <h4 class="hidden-md-down">
+                  Connect with me
+                </h4>
+
+                <nav class="social-nav">
+                  <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a> <a href="#"><i class="fa fa-envelope"></i></a>
+        </nav>
+
+        <p>
+          Lorem ipsum dolor sit amet, eu sed suas eruditi honestatis.
+        </p>
+      </div>
+-->
+<!--
+      </a>
+    </div>
+    </div>
+        <div class="col-sm-3 col-xs-6">
+          <div class="card card-block">
+            <a href="#"><img alt="" class="team-img" src="img/mahti/pelaajakortit/Kortti_Severi.jpeg">
+              <div class="card-title-wrap">
+                <span class="card-title">Severi Kupari</span>
+                 <span class="card-text">Keskitorjuja</span>
+              </div>
+
+
+          </a>
+        </div>
+      </div>
+
+      <div class="col-sm-3 col-xs-6">
+        <div class="card card-block">
+          <a href="#"><img alt="" class="team-img" src="img/mahti/pelaajakortit/Kortti_Tommi.JPG">
+              <div class="card-title-wrap">
+                <span class="card-title">Tommi Silventoinen</span>
+                 <span class="card-text">Libero</span>
+              </div>
+
+
+        </a>
+      </div>
+    </div>
+
+
+
+
+    
+    
+    
+    </div>
+-->
+    <!-- toka row -->
+    
+    
+    
+    
+    
+<!--
+    </div>
+  </section>
+-->
+  <!-- /Team -->
+  <!-- @component: footer -->
+
+  
+
+  <footer class="site-footer">
+    <div class="bottom">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-6 col-xs-12 text-lg-left text-center">
+            <p class="copyright-text">
+              ©Tekijä Severi Kupari #12
+            </p>
+            
+          </div>
+
+          <div class="col-lg-6 col-xs-12 text-lg-right text-center">
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <a href="index.html">Aloitus</a>
+              </li>
+
+              <li class="list-inline-item">
+                <a href="#about">Peliin!</a>
+              </li>
+
+          
+
+<!--
+              <li class="list-inline-item">
+                <a href="#team">Joukkue</a>
+              </li>
+-->
+
+            
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </footer>
+  <a class="scrolltop" href="#about"><span class="fa fa-angle-up"></span></a>
+
+
+  <!-- Required JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/superfish/hoverIntent.js"></script>
+  <script src="lib/superfish/superfish.min.js"></script>
+  <script src="lib/tether/js/tether.min.js"></script>
+  <script src="lib/stellar/stellar.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/counterup/counterup.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/easing/easing.js"></script>
+  <script src="lib/stickyjs/sticky.js"></script>
+  <script src="lib/parallax/parallax.js"></script>
+  <script src="lib/lockfixed/lockfixed.min.js"></script>
+
+  <!-- Template Specisifc Custom Javascript File -->
+  <script src="js/custom.js"></script>
+
+  <script src="contactform/contactform.js"></script>
+
+  <!-- firebase -->
+  <script src="index.js"></script>
 
 </body>
-
 </html>
